@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:meals/data/dummy_categories.dart';
-import 'package:meals/widgets/category_item.dart';
+
+import '../data/dummy_categories.dart';
+import './category_item.dart';
 
 class CategoriesScreen extends StatelessWidget {
   @override
@@ -14,12 +15,9 @@ class CategoriesScreen extends StatelessWidget {
           crossAxisSpacing: 15,
           mainAxisSpacing: 15,
         ),
-        padding: EdgeInsets.all(15),
+        padding: const EdgeInsets.all(15),
         children: DUMMY_CATEGORIES.map((category) {
-          return CategoryItem(
-            title: category.title,
-            color: category.color,
-          );
+          return CategoryItem(category);
         }).toList(),
       ),
     );
