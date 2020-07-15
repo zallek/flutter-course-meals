@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 import '../models/meal.dart';
+import '../screens/meal_detail_screen.dart';
 
 class MealItem extends StatelessWidget {
   final Meal meal;
@@ -18,6 +19,8 @@ class MealItem extends StatelessWidget {
         return 'Challenging';
       case MealComplexity.Hard:
         return 'Hard';
+      default:
+        return 'Unknown';
     }
   }
 
@@ -29,15 +32,24 @@ class MealItem extends StatelessWidget {
         return 'Pricey';
       case MealAffordability.Luxurious:
         return 'Luxurious';
+      default:
+        return 'Unknown';
     }
   }
 
-  void selectMeal() {}
+  void selectMeal(BuildContext context) {
+    Navigator.of(context).pushNamed(
+      MealDetailScreen.routeName,
+      arguments: {
+        'id': meal.id,
+      },
+    );
+  }
 
   @override
   Widget build(BuildContext context) {
     return InkWell(
-      onTap: selectMeal,
+      onTap: () => selectMeal(context),
       child: Card(
         shape: RoundedRectangleBorder(
           borderRadius: BorderRadius.circular(15),
