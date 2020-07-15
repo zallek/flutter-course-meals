@@ -15,7 +15,10 @@ class CategoriesScreen extends StatelessWidget {
       ),
       padding: const EdgeInsets.all(15),
       children: DUMMY_CATEGORIES.map((category) {
-        return CategoryItem(category);
+        return CategoryItem(
+          category,
+          key: Key(category.id),
+        );
       }).toList(),
     );
   }

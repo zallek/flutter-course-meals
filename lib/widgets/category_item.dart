@@ -6,7 +6,10 @@ import '../screens/category_meals_screen.dart';
 class CategoryItem extends StatelessWidget {
   final Category category;
 
-  CategoryItem(this.category);
+  const CategoryItem(
+    this.category, {
+    Key key,
+  }) : super(key: key);
 
   void selectCategory(BuildContext context) {
     Navigator.of(context).pushNamed(

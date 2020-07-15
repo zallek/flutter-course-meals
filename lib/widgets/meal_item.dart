@@ -5,11 +5,9 @@ import '../screens/meal_detail_screen.dart';
 
 class MealItem extends StatelessWidget {
   final Meal meal;
-  final Function(String id) onRemoveItem;
 
   const MealItem(
     this.meal, {
-    @required this.onRemoveItem,
     Key key,
   }) : super(key: key);
 
@@ -47,7 +45,7 @@ class MealItem extends StatelessWidget {
       },
     ).then((result) {
       if (result != null) {
-        onRemoveItem(result);
+        // onRemoveItem(result);
       }
     });
   }
